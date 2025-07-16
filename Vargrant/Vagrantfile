@@ -1,0 +1,62 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # Web Server VM
+  config.vm.define "web" do |web|
+    # Use ubuntu/bionic64 box
+    web.vm.box = "generic/ubuntu1804"
+    web.vm.hostname = "web-server"
+
+    # Forward port 8080 on the host to port 80 on the guest
+    web.vm.network "forwarded_port", guest: 80, host: 8080
+    # Private network for communication with other VMs
+    web.vm.network "private_network", ip: "192.168.56.10"
+
+    # Libvirt provider configuration
+    web.vm.provider "libvirt" do |libvirt|
+      libvirt.cpu_mode = "host-passthrough"
+    end
+
+    # Provisioning: copy files and run web_config.sh script
+    web.vm.provision "file", source: "files/index.html", destination: "/tmp/index.html"
+    web.vm.provision "file", source: "configs/nginx.conf", destination: "/tmp/nginx.conf"
+    web.vm.provision "shell", path: "scripts/web_config.sh"
+  end
+
+  # DB Server VM
+  config.vm.define "db" do |db|
+    # Use ubuntu/focal64 box
+    db.vm.box = "generic/ubuntu2004"
+    db.vm.hostname = "db-server"
+
+    # Private network for communication with other VMs
+    db.vm.network "private_network", ip: "192.168.56.11"
+
+    # Libvirt provider configuration
+    db.vm.provider "libvirt" do |libvirt|
+      libvirt.cpu_mode = "host-passthrough"
+    end
+
+    # Provisioning: run db_config.sh script
+    db.vm.provision "shell", path: "scripts/db_config.sh"
+  end
+
+  # Monitoring Server VM
+  config.vm.define "monitoring" do |monitoring|
+    # Use ubuntu/bionic64 box
+    monitoring.vm.box = "generic/ubuntu1804"
+    monitoring.vm.hostname = "monitoring-server"
+    
+    # Private network for communication with other VMs
+    monitoring.vm.network "private_network", ip: "192.168.56.12"
+
+    # Libvirt provider configuration
+    monitoring.vm.provider "libvirt" do |libvirt|
+      libvirt.cpu_mode = "host-passthrough"
+    end
+
+    # Provisioning: run monitoring_config.sh script
+    monitoring.vm.provision "shell", path: "scripts/monitoring_config.sh"
+  end
+end
