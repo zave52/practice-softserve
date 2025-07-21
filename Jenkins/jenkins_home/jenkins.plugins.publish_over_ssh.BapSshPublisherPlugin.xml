@@ -1,0 +1,37 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin_-Descriptor plugin="publish-over-ssh@390.vb_f56e7405751">
+  <hostConfigurations>
+    <jenkins.plugins.publish__over__ssh.BapSshHostConfiguration>
+      <name>remote</name>
+      <hostname>remote-host</hostname>
+      <username>remote_user</username>
+      <secretPassword>{AQAAABAAAAAQGP+hSxulPxpUFqlvlhUMOgcHsnMR0x+2XBJgrUgAJAY=}</secretPassword>
+      <remoteRootDir>/tmp</remoteRootDir>
+      <port>22</port>
+      <commonConfig class="jenkins.plugins.publish_over_ssh.BapSshCommonConfiguration">
+        <secretPassphrase>{AQAAABAAAAAQyc0FljOrCzDdJhANZCW1Peq+EWwb/FKL0KPAFAvz70w=}</secretPassphrase>
+        <key></key>
+        <keyPath>/var/jenkins_home/jobs/remote_host/temp/remote_host</keyPath>
+        <disableAllExec>false</disableAllExec>
+      </commonConfig>
+      <timeout>300000</timeout>
+      <overrideKey>false</overrideKey>
+      <disableExec>false</disableExec>
+      <keyInfo>
+        <secretPassphrase>{AQAAABAAAAAQnbgIMOP/886+yD43oUB8vIbyMRKsuEsOFE5lAUZu0hw=}</secretPassphrase>
+        <key></key>
+        <keyPath></keyPath>
+      </keyInfo>
+      <jumpHost></jumpHost>
+      <proxyType></proxyType>
+      <proxyHost></proxyHost>
+      <proxyPort>0</proxyPort>
+      <proxyUser></proxyUser>
+      <proxyPassword></proxyPassword>
+      <secretProxyPassword>{AQAAABAAAAAQHyYLpY2XOZdvrP/acwj8yg3ur2eHSeU6x+rmG4eBKRg=}</secretProxyPassword>
+      <avoidSameFileUploads>false</avoidSameFileUploads>
+    </jenkins.plugins.publish__over__ssh.BapSshHostConfiguration>
+  </hostConfigurations>
+  <commonConfig reference="../hostConfigurations/jenkins.plugins.publish__over__ssh.BapSshHostConfiguration/commonConfig"/>
+  <defaults class="jenkins.plugins.publish_over_ssh.options.SshPluginDefaults"/>
+</jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin_-Descriptor>

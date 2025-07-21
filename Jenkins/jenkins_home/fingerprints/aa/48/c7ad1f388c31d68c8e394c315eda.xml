@@ -1,0 +1,19 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2025-07-21 12:49:39.134 UTC</timestamp>
+  <md5sum>aa48c7ad1f388c31d68c8e394c315eda</md5sum>
+  <fileName>Credential id=my-github-token name=zave52/******</fileName>
+  <usages>
+    <entry>
+      <string>github</string>
+      <ranges>2</ranges>
+    </entry>
+  </usages>
+  <facets>
+    <com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet plugin="credentials@1415.v831096eb_5534">
+      <timestamp>1753102218180</timestamp>
+      <itemFullName>github</itemFullName>
+      <timestamp0>1753102179129</timestamp0>
+    </com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet>
+  </facets>
+</fingerprint>

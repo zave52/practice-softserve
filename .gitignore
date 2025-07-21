@@ -12,3 +12,12 @@
 *.box
 
 # End of https://www.toptal.com/developers/gitignore/api/vagrant
+
+```
+**/jenkins_home/caches/
+**/jenkins_home/jobs/
+**/jenkins_home/workspace/
+**/jenkins_home/plugins/
+**/jenkins_home/war/
+**/jenkins_home/logs/
+```
