@@ -62,27 +62,3 @@ resource "aws_security_group" "sg-private" {
     Name = "${var.tag_name}-private"
   }
 }
-
-resource "aws_security_group" "sg-vpc-endpoint" {
-  vpc_id      = aws_vpc.vpc.id
-  name_prefix = "${var.tag_name}-sg-vpc-endpoint-"
-  description = "Allow all inbound and unbound traffic"
-
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "${var.tag_name}-vpc-endpoint"
-  }
-}
